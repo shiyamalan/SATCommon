@@ -4,8 +4,6 @@
  */
 package com.nlp.umlextractor.model;
 
-import java.util.List;
-
 /**
  *
  * @author shiyam
