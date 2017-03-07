@@ -46,9 +46,12 @@ public class FilePropertyName
 
   private static String getPathFormat(String property2)
   {
-
+    if(property2 == null)
+    {
+      return "";
+    }
     property2 = property2.replaceAll("user.home", System.getProperty("user.home"));
-    property2 = property2.replaceAll("#", File.separator);
+    property2 = property2.replaceAll("#", File.separator + "" +File.separator);
     return property2;
   }
 
