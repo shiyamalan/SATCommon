@@ -1,7 +1,11 @@
 package com.util;
 
 import java.io.File;
+import java.io.IOException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
@@ -10,6 +14,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 /**
  * 
@@ -39,7 +44,7 @@ public abstract class FileOperator
     StreamResult result = new StreamResult(f.getPath());
     transformer.transform(source, result);
   }
-  
+
   public void addSubFolderIntoProject(File folder)
   {
 
@@ -57,5 +62,23 @@ public abstract class FileOperator
     add_file.mkdirs();
     add_file = new File(folder, FilePropertyName.PROPERTY);
     add_file.mkdirs();
+  }
+
+  /**
+   * Get the document Java object for existing file.
+   * 
+   * @param path for a file which contains XML or XMI format contents.
+   * @return document object of file
+   * @throws ParserConfigurationException
+   * @throws SAXException
+   * @throws IOException
+   */
+  public static Document getXMLDocument(String path) throws ParserConfigurationException, SAXException, IOException
+  {
+    File fXmlFile = new File(path);
+    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+    Document doc = dBuilder.parse(fXmlFile);
+    return doc;
   }
 }

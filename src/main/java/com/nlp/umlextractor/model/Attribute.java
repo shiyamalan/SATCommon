@@ -1,4 +1,3 @@
-
 package com.nlp.umlextractor.model;
 
 /**
