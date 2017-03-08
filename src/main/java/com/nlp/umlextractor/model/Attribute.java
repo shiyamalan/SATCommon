@@ -1,28 +1,29 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.nlp.umlextractor.model;
 
 /**
- *
- * @author shiyam
+ * Contains Attributes specific information
+ * @author SRatnavel
+ * @since 1.0
+ * @version 1.1
  */
-public class Attribute extends Property{
-    
-    private String dataType;
+public class Attribute extends Property
+{
 
-    /**
-     * @return the dataType
-     */
-    public String getDataType() {
-        return dataType;
-    }
+  private String dataType;
 
-    /**
-     * @param dataType the dataType to set
-     */
-    public void setDataType(String dataType) {
-        this.dataType = dataType;
-    }
+  public Attribute()
+  {
+    this.setType("Attribute");
+  }
+
+  public String getDataType()
+  {
+    return dataType;
+  }
+
+  public void setDataType(String dataType)
+  {
+    this.dataType = dataType;
+  }
 }

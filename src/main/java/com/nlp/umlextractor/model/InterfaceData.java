@@ -1,13 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.nlp.umlextractor.model;
 
 /**
- *
- * @author shiyam
+ * Maintains interface property information 
+ * @author SRatnavel
+ * @since 1.0
+ * @version 1.1
  */
-public class InterfaceData extends ModelData{
-    
+public class InterfaceData extends ClassData
+{
+  public InterfaceData()
+  {
+    setIsFinal("false");
+    setIsAbstract("true");
+    setType("Interface");
+  }
 }
